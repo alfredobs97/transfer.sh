@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server
+  namespace: default
+  labels:
+    name: server
+spec:
+  volumes:
+    - name: volume-data
+      hostPath:
+        path: /home/docker/data
+  containers:
+  - image: dutchcoders/transfer.sh
+    resources:
+    name: server
+    ports:
+    - containerPort: 8080
+    args:
+    - "-provider=local"
+    - "-temp-path=/tmp/"
+    - "-basedir=/data/"
+    volumeMounts:
+      - mountPath: "/data"
+        name: volume-data
