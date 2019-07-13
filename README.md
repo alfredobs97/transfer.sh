@@ -202,6 +202,15 @@ For easy deployment, we've created a Docker container.
 ```bash
 docker run --publish 8080:8080 dutchcoders/transfer.sh:latest --provider local --basedir /tmp/
 ```
+## Kubernetes
+For easy maintenance containers, we ´ve created a Kubernetes orchestration
+
+```bash
+cd kubernetes
+sh run.sh
+```
+If you want change download dir of server, customize in deploy.yaml in volumes/hostpath
+
 
 ## S3 Usage
 
